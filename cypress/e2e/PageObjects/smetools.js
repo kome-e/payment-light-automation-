@@ -96,7 +96,7 @@ class Smetools{
         cy.wait(4000)
         cy.xpath(this.createsubscriptionbtn).click()
         cy.xpath(this.plandropdown).click()
-        cy.contains('yrd').click()
+        cy.contains('just').click()
         cy.xpath(this.customrrdetails).click()
         cy.get('.form-group-select--is-multi__option, .css-10wo9uf-option')
         .first()
