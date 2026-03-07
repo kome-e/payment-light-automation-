@@ -29,8 +29,8 @@ module.exports = defineConfig({
     responseTimeout: 30000,  
     
     env: {
-    EMAIL: 'abass@blusalt.net',
-    PASSWORD: '@Blusalt2030'
+    EMAIL: 'komee+k@blusalt.net',
+    PASSWORD: 'Test123@4567'
   },
     
         baseUrl: 'https://dev-merchant.blusalt.net/',
