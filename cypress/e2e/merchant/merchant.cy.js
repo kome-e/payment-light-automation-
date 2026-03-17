@@ -23,11 +23,11 @@ Before(() => {
 })
 
 
- When('user adds a user', () =>{ 
- cy.wrap(null).then(() => {
- merchant.usercreation() 
- });
-})
+//  When('user adds a user', () =>{ 
+//  cy.wrap(null).then(() => {
+//  merchant.usercreation() 
+//  });
+// })
 
  When('user validates payout page', () => {
   cy.wrap(null).then(() => { 
