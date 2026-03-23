@@ -1,9 +1,13 @@
 name: Run Cypress Test
 
-on: [push]
+on:
+  schedule:
+    - cron: "0 5 * * *"  # runs daily at 5:00 UTC
+
+  workflow_dispatch: # optional: allows manual trigger
 
 env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true  # opt-in early
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   cypress-runner:
@@ -11,10 +15,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4  # upgrade to @v5 if available
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4  # upgrade to @v5 if available
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
@@ -22,4 +26,4 @@ jobs:
         run: npm ci
 
       - name: Run Cypress
-        uses: cypress-io/github-action@v6  # upgrade to @v7 if available
+        uses: cypress-io/github-action@v6
