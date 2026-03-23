@@ -2,7 +2,7 @@ name: Run Cypress Test
 
 on:
   schedule:
-    - cron: "0 5 * * *"  # runs daily at 5:00 UTC
+  - cron: "*/5 * * * *"
 
   workflow_dispatch: # optional: allows manual trigger
 
