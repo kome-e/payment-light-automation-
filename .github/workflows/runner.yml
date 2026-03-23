@@ -2,9 +2,9 @@ name: Run Cypress Test
 
 on:
   schedule:
-  - cron: "*/5 * * * *"
+    - cron: "0 5 * * *"  # runs daily at 6AM Lagos (5AM UTC)
 
-  workflow_dispatch: # optional: allows manual trigger
+  workflow_dispatch: # allows manual trigger
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
