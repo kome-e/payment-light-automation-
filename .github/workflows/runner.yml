@@ -2,15 +2,24 @@ name: Run Cypress Test
 
 on: [push]
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true  # opt-in early
+
 jobs:
-    cypress-runner:
-        runs-on: ubuntu-latest
+  cypress-runner:
+    runs-on: ubuntu-latest
 
-        steps:
-        - name: Intialize NPM
-          uses: actions/checkout@v4
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4  # upgrade to @v5 if available
 
-        - name: Run Cypress
-          uses: cypress-io/github-action@v6
+      - name: Setup Node.js
+        uses: actions/setup-node@v4  # upgrade to @v5 if available
+        with:
+          node-version: 20
 
-    
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Cypress
+        uses: cypress-io/github-action@v6  # upgrade to @v7 if available
