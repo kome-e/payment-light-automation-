@@ -30,7 +30,7 @@ module.exports = defineConfig({
     
     env: {
     EMAIL: 'komee+k@blusalt.net',
-    PASSWORD: 'Test123@4567'
+    PASSWORD: 'Test123@45678'
   },
     
         baseUrl: 'https://dev-merchant.blusalt.net/',
