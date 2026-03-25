@@ -12,7 +12,7 @@ class Merchants{
     addressone = "#address_one"
     cityField = "#city"
     city = "Lagos"
-    countryField = "//body[1]/div[2]/div[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/form[1]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]"
+    countryField = "input[id*='react-select'][id*='input']"
     stateField = "//div[contains(@class,'form-group-select__value-container css-hlgwow')]"
     Addcustomer = "//button[contains(@type,'submit')][normalize-space()='Add Customer']"
     //users
@@ -76,14 +76,19 @@ class Merchants{
         const number = Math.floor(10000000 + Math.random() * 90000000); // 8-digit suffix
         return prefix + number;
         }
-        console.log(this.Phonenuminput); // e.g. 08123456789
+       console.log(this.Phonenuminput); // e.g. 08123456789
         cy.get(this.addressone).type('Yelena, Lagos State, Nigeria.')
         cy.get(this.cityField).type(this.city)
         cy.wait(2000)
-        cy.xpath(this.countryField).type('Nigeria')
-        cy.xpath("//div[contains(text(),'Nigeria')]").click()
-        cy.xpath(this.stateField).type('lagos')
-        cy.xpath("//div[contains(text(),'Lagos')]").click()
+        cy.contains('Country')
+           .parent()
+           .find('input')
+           .type('Nigeria')
+        cy.contains('[role="option"]', 'Nigeria').click()
+        cy.xpath(this.stateField, { timeout: 20000 })
+          .click()
+          .type('Lagos')
+        cy.contains('[role="option"]', 'Lagos').click()
         cy.xpath(this.Addcustomer).click()
         cy.contains('New Customer added').should('be.visible')
     }
