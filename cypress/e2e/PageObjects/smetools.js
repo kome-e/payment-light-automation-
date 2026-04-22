@@ -90,7 +90,7 @@ class Smetools{
         //cy.contains('New Product Added').should('be.visible')
     }
 
-    subscriptioncreation(){
+     subscriptioncreation(){
         cy.wait(5000)
         cy.xpath(this.subscriptiontab).click()
         cy.wait(4000)
@@ -98,10 +98,8 @@ class Smetools{
         cy.xpath(this.plandropdown).click()
         cy.contains('yrd').click()
         cy.xpath(this.customrrdetails).click()
-        cy.get('.form-group-select--is-multi__option, .css-10wo9uf-option')
-        .first()
-        .click({ force: true });
-        cy.contains('tst').click()
+        cy.contains('.form-group-select--is-multi__option, .css-10wo9uf-option', 'test testst')
+         .click()
         cy.xpath(this.createsubscription).click()
         cy.contains('Subscription Successful!').should('be.visible')
     } 
